@@ -6,20 +6,32 @@ from matplotlib.colors import cnames
 
 def list_to_dict(some_list: list) -> dict:
     # TODO: Transformer la liste en dictionnaire, les éléments de la liste deviennent les clés et leur index deviennent les valeurs
-
-    return {}
+    my_dict = dict()
+    for i in range(len(some_list)):
+        my_dict[some_list[i]] = i
+    return my_dict
 
 
 def color_name_to_hex(colors: list) -> list:
+    """ :type colors: object
+    """
     # TODO: Trouver la valeur hex de chaque couleur dans la liste et créer une liste de tupple où le premier élément est le nom de la couleur et le deuxième est la valeur hex
+    my_list =[]
+    for c in colors:
+        if c in cnames:
+            hexa = cnames[c]
+            my_tuple =(c, hexa)
+            my_list.append(my_tuple)
+        else: print(f"la couleur {c} n'existe pas!")
 
-    return []
+
+    return my_list
 
 
 def create_list() -> list:
     # TODO: Créer une liste des 10 000 premiers entiers positif, sauf pour les entiers de 15 à 350
-
-    return []
+    my_list =[ i for i in range(10000) if i < 15 or i > 350]
+    return my_list
 
 
 def compute_mse(model_dict: dict) -> dict:
